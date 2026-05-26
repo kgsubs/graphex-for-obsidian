@@ -50,6 +50,17 @@ Click the gear icon to configure a provider. Keys are stored only in your browse
 | OpenRouter | One key, many models |
 | Custom | Any OpenAI-compatible endpoint (Ollama, self-hosted, etc.) |
 
+## Keyboard shortcuts
+
+| Key | Action |
+|---|---|
+| `/` | Focus search |
+| `Escape` | Dismiss modal / blur input / clear selection |
+| `L` | Toggle lasso mode |
+| `V` | Open / close vault picker |
+| `0` | Reset graph view |
+| `T` | Cycle theme |
+
 ## License
 
 MIT
