@@ -25,6 +25,8 @@ function App() {
   const [qaLoading, setQaLoading] = useState(false);
   const [qaTab, setQaTab] = useState('note');
   const [boot, setBoot] = useState(true);
+  const [leftWidth, setLeftWidth] = useState(280);
+  const [rightWidth, setRightWidth] = useState(380);
   const [showVaultModal, setShowVaultModal] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [aiStatus, setAiStatus] = useState(() => window.aiStatus());
@@ -210,6 +212,29 @@ ${context}`;
     return [...found];
   }
 
+  function startResize(side, e) {
+    e.preventDefault();
+    const startX = e.clientX;
+    const startW = side === 'left' ? leftWidth : rightWidth;
+    function onMove(ev) {
+      const min = Math.round(window.innerWidth * 0.05);
+      const max = Math.round(window.innerWidth * 0.25);
+      const dx = ev.clientX - startX;
+      const w = Math.min(max, Math.max(min, startW + (side === 'left' ? dx : -dx)));
+      side === 'left' ? setLeftWidth(w) : setRightWidth(w);
+    }
+    function onUp() {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+    }
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  }
+
   // ---- vault swap ----
   function handleVaultLoaded(newVault) {
     setVault(newVault);
@@ -266,7 +291,9 @@ ${context}`;
   return (
     <>
       {boot && <BootScreen />}
-      <div className="app">
+      <div className="app" style={{'--left-w': leftWidth+'px', '--right-w': rightWidth+'px', gridTemplateColumns: `${leftWidth}px 1fr ${rightWidth}px`}}>
+        <div className="col-handle col-handle-left" onMouseDown={e => startResize('left', e)} />
+        <div className="col-handle col-handle-right" onMouseDown={e => startResize('right', e)} />
         <div className="topbar">
           <div className="brand" onClick={resetToMockVault} style={{cursor:'pointer'}} title="reload mock vault">VAULT://semantic</div>
           <div className="meta">

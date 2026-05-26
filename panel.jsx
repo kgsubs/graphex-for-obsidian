@@ -52,7 +52,7 @@ function NotePanel({
         <div
           className={`tab ${qaTab === 'note' ? 'active' : ''}`}
           onClick={() => setQaTab('note')}
-        >NOTE {note ? '· ' + truncate(note.displayTitle || note.title, 18) : ''}</div>
+        >NOTE</div>
         <div
           className={`tab ${qaTab === 'qa' ? 'active' : ''}`}
           onClick={() => setQaTab('qa')}
