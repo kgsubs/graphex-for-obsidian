@@ -3,7 +3,7 @@
 A force-directed graph explorer for Obsidian vaults with AI-powered Q&A.
 No build step -- open `index.html` directly or serve from any static host.
 
-**[Live demo](https://shawndata.com/vaultmap/)**
+**[Live demo](https://shawndata.com/graphex/)**
 
 ## What it does
 
