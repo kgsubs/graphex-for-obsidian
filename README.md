@@ -3,6 +3,8 @@
 A force-directed graph explorer for Obsidian vaults with AI-powered Q&A.
 No build step -- open `index.html` directly or serve from any static host.
 
+**[Live demo](https://shawndata.com/vaultmap/)**
+
 ## What it does
 
 - Renders your Obsidian vault as an interactive force-directed graph (nodes = notes, edges = wikilinks)
