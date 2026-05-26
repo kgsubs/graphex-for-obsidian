@@ -1,4 +1,4 @@
-# Semantic Vault Explorer
+# Graphex for Obsidian
 
 A force-directed graph explorer for Obsidian vaults with AI-powered Q&A.
 No build step -- open `index.html` directly or serve from any static host.
