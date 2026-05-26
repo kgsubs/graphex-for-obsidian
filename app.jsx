@@ -295,7 +295,7 @@ ${context}`;
         <div className="col-handle col-handle-left" onMouseDown={e => startResize('left', e)} />
         <div className="col-handle col-handle-right" onMouseDown={e => startResize('right', e)} />
         <div className="topbar">
-          <div className="brand" onClick={resetToMockVault} style={{cursor:'pointer'}} title="reload mock vault">VAULT://semantic</div>
+          <div className="brand" onClick={resetToMockVault} style={{cursor:'pointer'}} title="reload mock vault">VAULT://map</div>
           <div className="meta">
             {vault.stats.noteCount} notes · {vault.stats.edgeCount} edges · {vault.stats.themeCount} clusters
             {vault.source === 'local' ? <span style={{marginLeft:8, color:'var(--green)'}}>● live</span> : null}
