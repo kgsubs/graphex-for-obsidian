@@ -833,3 +833,34 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 @media (max-width: 1100px) {
   .app { grid-template-columns: 240px 1fr 340px; }
 }
+
+/* ============================================================
+   MOBILE GATE
+   ============================================================ */
+.mobile-gate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--bg);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.mobile-gate-inner {
+  max-width: 320px;
+  text-align: center;
+  color: var(--fg-dim);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.mobile-gate-title {
+  font-size: 18px;
+  color: var(--green);
+  text-shadow: var(--glow);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+}
+.mobile-gate-inner p {
+  margin: 0 0 0.75rem;
+}

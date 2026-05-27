@@ -6,7 +6,21 @@ const { useState, useEffect, useRef, useMemo } = React;
 
 const DEFAULT_THEME = 'atlas';
 
+function MobileGate() {
+  return (
+    <div className="mobile-gate">
+      <div className="mobile-gate-inner">
+        <div className="mobile-gate-title">VaultMap</div>
+        <p>This tool is designed for desktop use and requires a large screen to work properly.</p>
+        <p>Open it on a desktop or laptop browser to get started.</p>
+      </div>
+    </div>
+  );
+}
+
 function App() {
+  if (window.innerWidth < 768) return <MobileGate />;
+
   const [vault, setVault] = useState(() => window.VAULT);
   const [themeId, setThemeId] = useState(() => localStorage.getItem('vm-theme') || DEFAULT_THEME);
   const theme = window.THEMES[themeId];
